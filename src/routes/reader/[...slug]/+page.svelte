@@ -6,5 +6,5 @@
 </script>
 
 <iframe title="reader" src={"" + page.url.pathname.replace("/reader","")} frameborder="0"
-class="w-full min-h-screen"
+class="w-screen h-screen "
 ></iframe>
