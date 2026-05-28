@@ -5,7 +5,7 @@
 <div class="min-h-screen bg-gray-50 font-sans">
   <div class="max-w-2xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-bold text-gray-900 mb-2">Archive</h1>
-    <p class="text-gray-500 mb-10">Choose a level.</p>
+    <p class="text-gray-500 mb-10">Choose a semester.</p>
 
     <div class="flex flex-col gap-3">
       {#each [1,2] as semester}
