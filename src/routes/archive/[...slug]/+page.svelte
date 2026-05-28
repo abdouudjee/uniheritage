@@ -1,13 +1,18 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
   import { page } from "$app/state";
+  import Tree from "$lib/components/tree.svelte";
   let { data }: PageProps = $props();
   let items = $derived(data.items);
-  $effect(() => {
-    console.log(page.url);
-  });
+
+  let x = { label: "root", children: [{ label: "root2",children:[{label:"root4"}] }, { label: "root3" }] };
 </script>
 
+{#if data.error}
+  something wrong happened ...
+{:else if data.items.length === 0}
+  oops! it's empty
+{/if}
 <div class="flex gap-8">
   {#each items as item}
     {#if item.type === "folder"}
@@ -33,3 +38,4 @@
     {/if}
   {/each}
 </div>
+<Tree root={x} />
