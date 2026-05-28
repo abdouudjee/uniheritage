@@ -1,10 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
-  $effect(() => {
-    console.log(page.url);
-  });
 </script>
-
+<button>xxx</button>
 <iframe title="reader" src={"" + page.url.pathname.replace("/reader","")} frameborder="0"
-class="w-screen h-screen "
+class="w-full h-screen "
 ></iframe>
