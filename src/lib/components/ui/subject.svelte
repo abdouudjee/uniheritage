@@ -41,22 +41,31 @@
   }
 </script>
 
-<div class="flex flex-col gap-2">
-  <div class="inline-flex justify-between">
-    <h3 class="text-lg font-semibold dark:text-white">{name}</h3>
-    <div class="inline-flex gap-2">
-      <p class="text-white">coef: {coef}</p>
-      <p class="text-white">credit: {credit}</p>
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between items-center">
+    <h3 class="text-base font-semibold text-gray-900">{name}</h3>
+    <div class="flex gap-2">
+      <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full"
+        >coef: {coef}</span
+      >
+      <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full"
+        >credit: {credit}</span
+      >
     </div>
   </div>
-  <div class="flex items-center justify-between gap-4">
-    <div class="flex w-full items-center justify-between gap-4 bg-black">
+
+  <div class="flex items-end gap-3">
+    <div class="flex flex-1 gap-3">
       {#if d}
-        <div class="flex w-full flex-col gap-2">
-          <label for="" class="text-white">td</label>
+        <div class="flex flex-col gap-1 flex-1">
+          <label
+            for=""
+            class="text-xs font-medium text-gray-500 uppercase tracking-wide"
+            >TD</label
+          >
           <input
-            class=" w-full dark:bg-black dark:text-white rounded-lg border-2 border-white p-2 placeholder:pl-2 placeholder:text-white focus:ring-2 dark:ring-white"
-            placeholder="td"
+            class="w-full rounded-lg border border-gray-200 bg-gray-50 text-gray-900 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+            placeholder="0–20"
             bind:value={td}
             min={0}
             max={20}
@@ -68,11 +77,15 @@
       {/if}
 
       {#if ex}
-        <div class="flex w-full flex-col gap-2">
-          <label for="" class="text-white">exam</label>
+        <div class="flex flex-col gap-1 flex-1">
+          <label
+            for=""
+            class="text-xs font-medium text-gray-500 uppercase tracking-wide"
+            >Exam</label
+          >
           <input
-            class=" w-full rounded-lg dark:bg-black dark:text-white border-2 border-white p-2 placeholder:pl-2 placeholder:text-white focus:ring-2 dark:ring-white"
-            placeholder="exam"
+            class="w-full rounded-lg border border-gray-200 bg-gray-50 text-gray-900 px-3 py-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+            placeholder="0–20"
             bind:value={exam}
             min={0}
             max={20}
@@ -83,12 +96,17 @@
         </div>
       {/if}
     </div>
-    <div class="flex flex-col gap-2">
-      <label for="" class="text-white">Average</label>
+
+    <div class="flex flex-col gap-1">
+      <label
+        for=""
+        class="text-xs font-medium text-gray-500 uppercase tracking-wide"
+        >Average</label
+      >
       <input
         disabled={true}
         type="text"
-        class="w-25 rounded-lg border-2 dark:bg-black dark:text-white border-white p-2 text-center placeholder:mx-auto placeholder:text-white focus:ring-2 dark:ring-white"
+        class="w-20 rounded-lg border border-gray-200 bg-gray-100 text-gray-900 p-2 text-center font-semibold focus:ring-2 focus:ring-black"
         value={isNaN(result) ? 0 : result.toFixed(2)}
       />
     </div>

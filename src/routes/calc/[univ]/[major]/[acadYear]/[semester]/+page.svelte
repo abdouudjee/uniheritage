@@ -34,44 +34,45 @@
   );
 </script>
 
-<div class="min-h-screen w-full bg-zinc-50 font-sans dark:bg-black">
-  <nav class="flex flex-col justify-center gap-2 py-4 items-center">
-    <h1
-      class="text-center text-4xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50"
-    >
-      Gradges calculator
+<div class="min-h-screen w-full bg-gray-50 font-sans">
+  <nav class="flex flex-col justify-center gap-3 py-8 items-center">
+    <h1 class="text-center text-4xl font-bold tracking-tight text-gray-900">
+      Grades calculator
     </h1>
-    <div class="flex items-center">
+    <div
+      class="flex items-center border border-gray-200 rounded-lg overflow-hidden"
+    >
       <a
         href="/calc/{page.params.univ}/{page.params.major}/{page.params
           .acadYear}/s1"
         class={[
-          ,
-          "size-10 flex items-center justify-center border border-white ",
+          "px-6 py-2 text-sm font-medium transition",
           page.params.semester == "s1"
             ? "bg-black text-white"
-            : "bg-white text-black",
+            : "bg-white text-gray-700 hover:bg-gray-50",
         ]}>s1</a
       >
       <a
         href="/calc/{page.params.univ}/{page.params.major}/{page.params
           .acadYear}/s2"
         class={[
-          ,
-          "size-10 flex items-center justify-center border border-white ",
+          "px-6 py-2 text-sm font-medium transition",
           page.params.semester == "s2"
             ? "bg-black text-white"
-            : "bg-white text-black",
+            : "bg-white text-gray-700 hover:bg-gray-50",
         ]}>s2</a
       >
     </div>
   </nav>
   <main
-    class="flex h-full w-full flex-col items-center px-4 justify-start dark:bg-black gap-4"
+    class="flex h-full w-full flex-col items-center px-6 justify-start gap-6 pb-12"
   >
-    <form action="" class="grid grid-cols-2 gap-x-4 gap-y-4 dark:bg-black">
+    <form
+      action=""
+      class="grid grid-cols-1 md:grid-cols-2  gap-4 w-full max-w-4xl"
+    >
       {#each subjects as subject, i}
-        <div class="flex flex-col gap-2">
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
           <Subject
             bind:result={subject.result}
             name={subject.name}
@@ -81,17 +82,20 @@
             credit={subject.credit}
             examRatio={subject.examRatio}
           />
-          <hr class="text-white" />
         </div>
       {/each}
     </form>
 
-    <div class="flex items-center gap-2">
-      <label for="" class="text-white">Average</label>
+    <div
+      class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm"
+    >
+      <label for="" class="text-sm text-gray-500 font-medium"
+        >Overall average</label
+      >
       <input
         disabled={true}
         type="text"
-        class="w-25 rounded-lg border-2 dark:bg-black dark:text-white border-white p-2 text-center placeholder:mx-auto placeholder:text-white focus:ring-2 dark:ring-white"
+        class="w-24 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 p-2 text-center font-semibold text-lg focus:ring-2 focus:ring-black"
         value={isNaN(average) ? 0 : average.toFixed(2)}
       />
     </div>

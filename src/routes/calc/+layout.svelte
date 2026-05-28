@@ -1,6 +1,13 @@
 <script>
   let { children } = $props();
 </script>
-the UI need polish just forget about it for now
-<br>
+
+<div class="h-10 flex items-center bg-gray-50 px-4">
+  <a
+    href="/"
+    class="font-medium text-gray-900 hover:text-gray-600 transition text-lg"
+  >
+    UniHeritage
+  </a>
+</div>
 {@render children()}
