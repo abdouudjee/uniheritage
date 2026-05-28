@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { dataRegistry } from '$lib/data';
 export const load: PageServerLoad = async ({ params }) => {
-    const { univ, major, acadYear,semester } = params;
+    const { univ, major, level,semester } = params;
     const registryKey = `${univ}/${major}`;
     const loadModule = dataRegistry[registryKey];
     if (!loadModule) {
@@ -16,9 +16,9 @@ export const load: PageServerLoad = async ({ params }) => {
     catch (err) {
         throw error(500, "this major doesn't exist")
     }
-    const data = subjects.data?.[acadYear]?.[semester];
+    const data = subjects.data?.[level]?.[semester];
     if (!data) {
-        throw error(404, `Academic year "${acadYear}" not found for ${major}.`);
+        throw error(404, `Academic year "${level}" not found for ${major}.`);
     }
     return {
         data: data
