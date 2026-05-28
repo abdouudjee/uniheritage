@@ -44,7 +44,7 @@
     >
       <a
         href="/calc/{page.params.univ}/{page.params.major}/{page.params
-          .acadYear}/s1"
+          .level}/s1"
         class={[
           "px-6 py-2 text-sm font-medium transition",
           page.params.semester == "s1"
@@ -54,7 +54,7 @@
       >
       <a
         href="/calc/{page.params.univ}/{page.params.major}/{page.params
-          .acadYear}/s2"
+          .level}/s2"
         class={[
           "px-6 py-2 text-sm font-medium transition",
           page.params.semester == "s2"
