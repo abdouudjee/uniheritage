@@ -36,13 +36,21 @@
     <div class="bg-gray-50 p-4 rounded-lg shadow-sm">Commercial scince</div>
     <div class="bg-gray-50 p-4 rounded-lg shadow-sm">Biologie</div>
   </div>
-  <form onsubmit={handleSearch} class="w-full max-w-xl mx-auto mb-10">
+  <form
+    onsubmit={handleSearch}
+    class="w-full max-w-xl mx-auto mb-10 flex items-center gap-4"
+  >
     <input
       type="text"
       bind:value={searchQuery}
       placeholder="Search courses, modules..."
-      class="w-full max-w-xl mx-auto mb-10 px-4 py-3 border rounded-lg"
+      class="w-full max-w-xl mx-auto px-4 py-3 border rounded-lg"
     />
+    <button
+      type="submit"
+      class="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition"
+      >search</button
+    >
   </form>
   <div class="flex justify-center gap-4">
     <a

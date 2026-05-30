@@ -36,13 +36,18 @@
 
 <div class="min-h-screen bg-gray-50 font-sans">
   <div class="max-w-2xl mx-auto px-6 py-12">
-    <form onsubmit={handleSearch} class="mb-8">
+    <form onsubmit={handleSearch} class="mb-8 flex items-center gap-4">
       <input
         type="text"
         bind:value={searchQuery}
         placeholder="Search courses, modules..."
         class="w-full px-4 py-3 border border-gray-200 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
       />
+      <button
+        type="submit"
+        class="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition"
+        >search</button
+      >
     </form>
 
     {#if data.empty}
@@ -68,7 +73,6 @@
               </h2>
 
               <p class="mt-1 flex flex-wrap gap-1 text-sm text-gray-400">
-                
                 {#each getBreadcrumbs(result) as crumb, i}
                   {#if crumb.label !== ""}
                     <span>/</span>
