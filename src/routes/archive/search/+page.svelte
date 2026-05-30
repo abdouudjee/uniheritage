@@ -65,8 +65,16 @@
           <!-- svelte-ignore a11y_no_static_element_interactions -->
           <div
             onclick={() => goto(result.archiveUrl)}
-            class="group hover:cursor-pointer flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 transition-all hover:border-gray-400 hover:shadow-sm"
+            class="group hover:cursor-pointer flex items-center justify-start gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 transition-all hover:border-gray-400 hover:shadow-sm"
           >
+            <img
+              src="/utils/icons/{result.isFolder
+                ? 'folder'
+                : result.name.split('.').pop()?.toLowerCase() || 'file'}.svg"
+              alt=""
+              class="size-8"
+            />
+
             <div>
               <h2 class="font-medium text-gray-900 w-full">
                 {result.name}
@@ -86,12 +94,6 @@
                 {/each}
               </p>
             </div>
-
-            <span
-              class="shrink-0 rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-500"
-            >
-              {result.matchType}
-            </span>
           </div>
         {/each}
       </div>
