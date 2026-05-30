@@ -32,11 +32,11 @@
       Browse Materials
     </a>
 
-    <button
+    <a href="https://github.com/abdouudjee/uniheritage"
       class="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 transition"
     >
       Contribute
-    </button>
+    </a >
   </div>
 </section>
 <p class="text-center ">
