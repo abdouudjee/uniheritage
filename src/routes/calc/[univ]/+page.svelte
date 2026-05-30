@@ -1,19 +1,16 @@
 <script>
-  import { page } from "$app/state";
-  let { data } = $props();
+  let { data, params } = $props();
 </script>
 
 <div class="min-h-screen bg-gray-50 font-sans">
   <div class="max-w-2xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-bold text-gray-900 mb-2">Grades calculator</h1>
-    <p class="text-gray-500 mb-10">
-      Choose your Major.
-    </p>
+    <p class="text-gray-500 mb-10">Choose your Major.</p>
 
     <div class="flex flex-col gap-3">
       {#each data.data as major}
         <a
-          href="/calc/{page.params.univ}/{major}"
+          href="/calc/{params.univ}/{major}"
           class="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-5 py-4 shadow-sm hover:border-gray-400 hover:shadow-md transition-all group"
         >
           <span class="text-gray-900 font-medium uppercase">

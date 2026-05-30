@@ -1,5 +1,5 @@
 <script>
-  import { page } from "$app/state";
+  let { params } = $props();
 </script>
 
 <div class="min-h-screen bg-gray-50 font-sans">
@@ -8,9 +8,10 @@
     <p class="text-gray-500 mb-10">Choose a semester.</p>
 
     <div class="flex flex-col gap-3">
-      {#each [1,2] as semester}
+      {#each [1, 2] as semester}
         <a
-          href="/archive/{page.params.univ}/{page.params.major}/{page.params.year}/{page.params.level}/s{semester}"
+          href="/archive/{params.univ}/{params.major}/{params
+            .year}/{params.level}/s{semester}"
           class="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-5 py-4 shadow-sm hover:border-gray-400 hover:shadow-md transition-all group"
         >
           <span class="text-gray-900 font-medium uppercase">

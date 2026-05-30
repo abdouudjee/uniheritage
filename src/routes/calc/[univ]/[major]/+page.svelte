@@ -1,6 +1,5 @@
 <script>
-  import { page } from "$app/state";
-  let { data } = $props();
+  let { data, params } = $props();
 </script>
 
 <div class="min-h-screen bg-gray-50 font-sans">
@@ -13,7 +12,7 @@
     <div class="flex flex-col gap-3">
       {#each data.levels as level}
         <a
-          href="/calc/{page.params.univ}/{page.params.major}/{level.id}/s1"
+          href="/calc/{params.univ}/{params.major}/{level.id}/s1"
           class="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-5 py-4 shadow-sm hover:border-gray-400 hover:shadow-md transition-all group"
         >
           <span class="text-gray-900 font-medium uppercase">

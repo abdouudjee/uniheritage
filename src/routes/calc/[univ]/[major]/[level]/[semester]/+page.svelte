@@ -1,7 +1,6 @@
 <script lang="ts">
   import Subject from "$lib/components/ui/subject.svelte";
   import type { PageProps } from "./$types";
-  import { page } from "$app/state";
   type subject = {
     id: number;
     name: string;
@@ -12,7 +11,7 @@
     credit: number;
     result: number;
   };
-  let { data }: PageProps = $props();
+  let { data, params }: PageProps = $props();
   // svelte-ignore state_referenced_locally
   let subjects = $state<subject[]>(data?.data ?? []);
   $effect.pre(() => {
@@ -43,21 +42,19 @@
       class="flex items-center border border-gray-200 rounded-lg overflow-hidden"
     >
       <a
-        href="/calc/{page.params.univ}/{page.params.major}/{page.params
-          .level}/s1"
+        href="/calc/{params.univ}/{params.major}/{params.level}/s1"
         class={[
           "px-6 py-2 text-sm font-medium transition",
-          page.params.semester == "s1"
+          params.semester == "s1"
             ? "bg-black text-white"
             : "bg-white text-gray-700 hover:bg-gray-50",
         ]}>s1</a
       >
       <a
-        href="/calc/{page.params.univ}/{page.params.major}/{page.params
-          .level}/s2"
+        href="/calc/{params.univ}/{params.major}/{params.level}/s2"
         class={[
           "px-6 py-2 text-sm font-medium transition",
-          page.params.semester == "s2"
+          params.semester == "s2"
             ? "bg-black text-white"
             : "bg-white text-gray-700 hover:bg-gray-50",
         ]}>s2</a
@@ -69,7 +66,7 @@
   >
     <form
       action=""
-      class="grid grid-cols-1 md:grid-cols-2  gap-4 w-full max-w-4xl"
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl"
     >
       {#each subjects as subject, i}
         <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
