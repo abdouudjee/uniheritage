@@ -26,11 +26,11 @@
     class="w-full max-w-xl mx-auto mb-10 px-4 py-3 border rounded-lg"
   />
   <div class="flex justify-center gap-4">
-    <button
+    <a href="/archive"
       class="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition"
     >
       Browse Materials
-    </button>
+    </a>
 
     <button
       class="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 transition"

@@ -160,6 +160,8 @@ Add other folders if genuinely needed — keep the name self-explanatory.
 `exam-correction.pdf`
 
 **Rules:**
+- **Professor credentials** — name, email, phone number, signature, or institution watermark are fine to keep. Personal contact details outside an academic context should be removed.
+- **Student information** — remove any document that contains student names, ID numbers, or grades. Corrected exams with student work on them do not belong here.
 - Lowercase, hyphens instead of spaces — no underscores, no camelCase
 - No numbering padding needed (`chapter1` not `chapter01`)
 - Title is optional but encouraged when it adds clarity — `chapter3-recursion.pdf` is better than `chapter3.pdf`
