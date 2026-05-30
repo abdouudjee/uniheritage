@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { error } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = ({ params }) => {
@@ -8,7 +8,7 @@ export const load: PageServerLoad = ({ params }) => {
   const { univ, major, year, level, semester, file } = params;
 
   const baseDir = path.resolve("static/univs");
-  
+
   // 2. Safely break down the deep subfolder paths (e.g., "algo1/course" -> ["algo1", "course"])
   const fileSegments = file ? file.split("/") : [];
 
@@ -33,7 +33,11 @@ export const load: PageServerLoad = ({ params }) => {
   }
 
   const stat = fs.statSync(targetPath);
-
+  
+  // If it's a physical file, skip rendering and send them straight to the asset
+  if (!stat.isDirectory()) {
+    throw redirect(307, `/reader/univs/${univ}/${major}/${year}/${level}/${semester}/${file}`);
+  }
   // 4. Handle deep file downloads vs deep folder views
   if (!stat.isDirectory()) {
     return {
