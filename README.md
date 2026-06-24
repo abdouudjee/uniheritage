@@ -1,8 +1,8 @@
-# UniHeritage
+# Heritage
 
 ## About
 
-UniHeritage helps students navigate university by giving them access to past materials and tools they actually need — old exams, course documents, TDs, TPs, and a grade calculator — all free, no account required.
+Heritage helps students navigate university by giving them access to past materials and tools they actually need — old exams, course documents, TDs, TPs, and a grade calculator — all free, no account required.
 
 ## What You'll Find Here
 

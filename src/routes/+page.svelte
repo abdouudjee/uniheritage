@@ -15,7 +15,7 @@
 </script>
 
 <section class="max-w-4xl mx-auto px-6 py-16 text-center">
-  <h1 class="text-5xl font-bold text-gray-900 mb-6">UniHeritage</h1>
+  <h1 class="text-5xl font-bold text-gray-900 mb-6">Heritage</h1>
 
   <p class="text-xl text-gray-600 mb-8">
     A large archive of university materials from previous years.

@@ -7,7 +7,7 @@
     href="/"
     class="font-medium text-gray-900 hover:text-gray-600 transition text-lg"
   >
-    UniHeritage
+    Heritage
   </a>
 </div>
 {@render children()}

@@ -1,4 +1,4 @@
-# Contributing to UniHeritage
+# Contributing to Heritage
 
 Thanks for taking the time to contribute — it means a lot for a project like this.
 
