@@ -1,27 +1,19 @@
-import fs from "node:fs";
-import path from "node:path";
-import { error } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import { list } from '$lib/utils/actions';
+import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = ({ params }) => {
-  const { univ, major, year } = params;
+export const load: PageServerLoad = async ({ platform, params }) => {
+	const { univ, major, year } = params;
 
-  // Resolve path directly to the selected academic year folder
-  const targetPath = path.resolve("static/univs", univ, major, year);
+	const prefix = `${univ}/${major}/${year}/`;
 
-  if (!fs.existsSync(targetPath)) {
-    throw error(404, "The requested academic year folder does not exist.");
-  }
+	const items = await list(platform!.env, prefix, '/');
+	const levels = items.result.delimitedPrefixes.map((e) => e.replace(prefix, '').replace('/', ''));
 
-  const items = fs.readdirSync(targetPath, { withFileTypes: true });
-
-  return {
-    univ,
-    major,
-    year,
-    // Gather all academic level folders (e.g., 'l1', 'm1')
-    levels: items
-      .filter((item) => item.isDirectory() && !item.name.startsWith("."))
-      .map((item) => item.name),
-  };
+	return {
+		univ,
+		major,
+		year,
+		// Gather all academic level folders (e.g., 'l1', 'm1')
+		levels
+	};
 };
