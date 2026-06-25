@@ -1,21 +1,11 @@
-import fs from "node:fs";
-import path from "node:path";
-import type { PageServerLoad } from "./$types";
+import { list } from '$lib/utils/actions';
+import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = () => {
-  const targetPath = path.resolve("static/univs");
-
-  // Verify the root folder exists on the server disk
-  if (!fs.existsSync(targetPath)) {
-    return { univs: [] };
-  }
-
-  const items = fs.readdirSync(targetPath, { withFileTypes: true });
-
-  return {
-    // Only return directories (universities), filtering out loose files or hidden items
-    univs: items
-      .filter((item) => item.isDirectory() && !item.name.startsWith("."))
-      .map((item) => item.name),
-  };
+export const load: PageServerLoad = async ({ platform }) => {
+	// top level folders
+	const items = await list(platform!.env, undefined, '/');
+	const univs = items.result.delimitedPrefixes.map((e) => e.replace('/', ''));
+	return {
+		univs
+	};
 };
